@@ -1,5 +1,6 @@
 package by.byshnev.models;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Date;
 
 public class Article {
