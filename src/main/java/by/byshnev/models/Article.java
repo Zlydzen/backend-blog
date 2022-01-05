@@ -1,7 +1,10 @@
 package by.byshnev.models;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Article {
 
@@ -78,4 +81,12 @@ public class Article {
     public void setUpdateDateTime(Date updateDateTime) {
         this.updateDateTime = updateDateTime;
     }
+
+    {
+        List<Article> articleList = new ArrayList<>();
+        articleList.add(new Article(1,"First","First article","Content of article","M.Byshniou",new Date(),new Date()));
+        articleList.add(new Article(2,"Second","Second article","Phone dependency is evil","M.McKenzy",new Date(),new Date()));
+        articleList.add(new Article(3,"Some title","Interesting article","Cars are very popular","R.Johnson",new Date(),new Date()));
+    }
+
 }
