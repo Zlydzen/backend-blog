@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/articles",produces = {"application/json"})
-public class ArticlesController {
+public class ArticlesRestController {
 
     @GetMapping()
     public String showArticles() {
