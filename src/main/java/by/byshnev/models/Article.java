@@ -1,5 +1,7 @@
 package by.byshnev.models;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Article {
@@ -11,7 +13,7 @@ public class Article {
     private Date creationDateTime;
     private Date updateDateTime;
 
-    public Article(int ID, String title, String shortText, String mainText, String author, Date creationDateTime, Date updateDateTime, Article firstArticle) {
+    public Article(int ID, String title, String shortText, String mainText, String author, Date creationDateTime, Date updateDateTime) {
         this.ID = ID;
         Title = title;
         this.shortText = shortText;
