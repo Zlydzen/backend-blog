@@ -2,6 +2,7 @@ package by.byshnev.models;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Article {
