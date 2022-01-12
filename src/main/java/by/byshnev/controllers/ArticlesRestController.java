@@ -12,9 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/articles")
 public class ArticlesRestController {
 
-    @RequestMapping(value = "/articles", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Article> restArticle() {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         List<Article> articleList = new ArrayList<>();
