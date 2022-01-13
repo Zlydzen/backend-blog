@@ -1,11 +1,18 @@
 package by.byshnev.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+@Entity
 public class Article {
+    @Id
+    @GeneratedValue
     private int ID;
     private String Title;
     private String shortText;
@@ -13,6 +20,10 @@ public class Article {
     private String author;
     private Date creationDateTime;
     private Date updateDateTime;
+
+    public Article() {
+
+    }
 
     public Article(int ID, String title, String shortText, String mainText, String author, Date creationDateTime, Date updateDateTime) {
         this.ID = ID;
@@ -79,5 +90,4 @@ public class Article {
     public void setUpdateDateTime(Date updateDateTime) {
         this.updateDateTime = updateDateTime;
     }
-
 }
