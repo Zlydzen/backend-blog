@@ -19,6 +19,18 @@ public class Article {
     private LocalDate creationDateTime;
     private LocalDate updateDateTime;
 
+    public Article(int ID, String title, String shortText, String mainText, String author, LocalDate creationDateTime, LocalDate updateDateTime) {
+        this.ID = ID;
+        Title = title;
+        this.shortText = shortText;
+        this.mainText = mainText;
+        this.author = author;
+        this.creationDateTime = creationDateTime;
+        this.updateDateTime = updateDateTime;
+    }
+
+    public Article(){}
+
     public int getID() {
         return ID;
     }
