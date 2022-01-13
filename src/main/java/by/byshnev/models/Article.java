@@ -2,15 +2,13 @@ package by.byshnev.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 public class Article {
+
     @Id
     @GeneratedValue
     private int ID;
@@ -18,22 +16,8 @@ public class Article {
     private String shortText;
     private String mainText;
     private String author;
-    private Date creationDateTime;
-    private Date updateDateTime;
-
-    public Article() {
-
-    }
-
-    public Article(int ID, String title, String shortText, String mainText, String author, Date creationDateTime, Date updateDateTime) {
-        this.ID = ID;
-        Title = title;
-        this.shortText = shortText;
-        this.mainText = mainText;
-        this.author = author;
-        this.creationDateTime = creationDateTime;
-        this.updateDateTime = updateDateTime;
-    }
+    private LocalDate creationDateTime;
+    private LocalDate updateDateTime;
 
     public int getID() {
         return ID;
@@ -75,19 +59,19 @@ public class Article {
         this.author = author;
     }
 
-    public Date getCreationDateTime() {
+    public LocalDate getCreationDateTime() {
         return creationDateTime;
     }
 
-    public void setCreationDateTime(Date creationDateTime) {
+    public void setCreationDateTime(LocalDate creationDateTime) {
         this.creationDateTime = creationDateTime;
     }
 
-    public Date getUpdateDateTime() {
+    public LocalDate getUpdateDateTime() {
         return updateDateTime;
     }
 
-    public void setUpdateDateTime(Date updateDateTime) {
+    public void setUpdateDateTime(LocalDate updateDateTime) {
         this.updateDateTime = updateDateTime;
     }
 }
