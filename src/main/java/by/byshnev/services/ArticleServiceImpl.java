@@ -14,7 +14,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public Article getArticleList() {
-        return null;
+    public Iterable<Article> getArticleList() {
+        return articleRepository.findAll();
     }
 }

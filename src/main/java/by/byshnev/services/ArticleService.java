@@ -4,6 +4,6 @@ import by.byshnev.models.Article;
 
 public interface ArticleService {
 
-    Article getArticleList();
+    Iterable<Article> getArticleList();
 
 }
