@@ -85,4 +85,7 @@ public class Article {
     public void setUpdateDateTime(LocalDate updateDateTime) {
         this.updateDateTime = updateDateTime;
     }
+
+    
+
 }
