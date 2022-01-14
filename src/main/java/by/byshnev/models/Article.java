@@ -10,7 +10,7 @@ public class Article {
 
     @Id
     @GeneratedValue
-    private int ID;
+    private long ID;
     private String Title;
     private String shortText;
     private String mainText;
@@ -30,7 +30,7 @@ public class Article {
 
     public Article(){}
 
-    public int getID() {
+    public long getID() {
         return ID;
     }
 
