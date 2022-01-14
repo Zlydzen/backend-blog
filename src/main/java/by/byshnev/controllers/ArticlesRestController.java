@@ -9,9 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -21,14 +18,9 @@ public class ArticlesRestController {
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Article> restArticle() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        List<Article> articleList = new ArrayList<>();
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(
-                "/Users/Nikitos/Desktop/backend-blog/src/main/resources/articles.json"));
-        while (bufferedReader.ready()) {
-            String jsonArticleArray = bufferedReader.readLine();
-            articleList = objectMapper.readValue(jsonArticleArray, new TypeReference<>() {
-            });
-        }
+        TypeReference<List<Article>> typeReference = new TypeReference<List<Article>>() {};
+        InputStream inputStream = TypeReference.class.getResourceAsStream("/Users/Nikitos/Desktop/backend-blog/src/main/resources/articles.json");
+        List<Article> articleList = objectMapper.readValue(inputStream, typeReference);
         return articleList;
     }
 }
