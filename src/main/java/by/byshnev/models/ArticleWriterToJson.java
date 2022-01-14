@@ -3,17 +3,14 @@ package by.byshnev.models;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 public class ArticleWriterToJson {
 
     public static void main(String[] args) throws IOException, ParseException {
@@ -23,7 +20,6 @@ public class ArticleWriterToJson {
 
     public void writerToJsonFile() throws IOException {
         List<Article> articleList = new ArrayList<>();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule())
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
@@ -35,9 +31,18 @@ public class ArticleWriterToJson {
         article1.setAuthor("Some author");
         article1.setCreationDateTime(LocalDate.parse("1989-05-19"));
         article1.setUpdateDateTime(LocalDate.now());
+        Article article2 = new Article();
+        article2.setTitle("Some title2");
+        article2.setShortText("Some short text2");
+        article2.setMainText("Some main text2");
+        article2.setAuthor("Some author2");
+        article2.setCreationDateTime(LocalDate.parse("1989-05-19"));
+        article2.setUpdateDateTime(LocalDate.now());
+        articleList.add(article1);
+        articleList.add(article2);
 
 
         String PATH = "/Users/Nikitos/Desktop/backend-blog-main/backend-blog/src/main/resources/articles.json";
-        objectMapper.writeValue(new File(PATH), article1);
+        objectMapper.writeValue(new File(PATH), articleList);
     }
 }

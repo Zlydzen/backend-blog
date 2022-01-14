@@ -1,1 +1,71 @@
-{"shortText":"Some short text","mainText":"Some main text","author":"Some author","creationDateTime":"1989-05-19","updateDateTime":"2022-01-13","id":1,"title":"Some title"}
+[
+  {
+    "author": "Craig Walls",
+    "creationDateTime": "2022-02-01",
+    "id": 0,
+    "mainText": "Spring Framework makes life easier for Java developers. The latest version of Spring brings its productivity-focused approach to microservices, reactive development, and other modern application designs. With Spring Boot now fully integrated, you can start even complex projects with minimal configuration code. And in recent version of Spring, the new RSocket specification makes your application’s networking symmetrical—perfect for reactive design.",
+    "shortText": "If you're really serious about Spring, the book should lie next to the keyboard and serve as a pillow at night.",
+    "title": "Spring in Action, Sixth Edition",
+    "updateDateTime": "2022-02-13"
+  },
+  {
+    "author": "Bruce Eckel",
+    "creationDateTime": "1989-05-19",
+    "id": 1,
+    "mainText": "Prentice Hall published the 4th edition of the work in 2006. The book represents a print version of Eckel’s “Hands-on Java” seminar. Bruce Eckel wrote “On Java8” as a sequel for Thinking in Java and it is available in Google Play as an ebook.",
+    "shortText": "Thinking in Java is a book about the Java programming language",
+    "title": "Thinking in Java, 4th edition",
+    "updateDateTime": "2001-01-18"
+  },
+  {
+    "author": "J.K.Rowling",
+    "creationDateTime": "1997-06-26",
+    "id": 2,
+    "mainText": "The first novel in the Harry Potter series and Rowling's debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry makes close friends and a few enemies during his first year at the school, and with the help of his friends, he faces an attempted comeback by the dark wizard Lord Voldemort, who killed Harry's parents, but failed to kill Harry when he was just 15 months old.",
+    "shortText": "The book was first published in the United Kingdom on 26 June 1997 by Bloomsbury.",
+    "title": "Harry Potter and the Philosopher's Stone",
+    "updateDateTime": "1998-06-02"
+  },
+  {
+    "author": "David Attenborough",
+    "creationDateTime": "1989-05-19",
+    "id": 3,
+    "mainText": "In this scientifically informed account of the changes occurring in the world over the last century, award-winning broadcaster and natural historian shares a lifetime of wisdom and a hopeful vision for the future.",
+    "shortText": "My Witness Statement and a Vision for the Future",
+    "title": "A Life on Our Planet",
+    "updateDateTime": "1999-10-06"
+  },
+  {
+    "author": "Molechka",
+    "creationDateTime": "2021-05-02",
+    "id": 4,
+    "mainText": "JSON-объект — это неупорядоченное множество пар «ключ:значение». Ключ — это название параметра, который мы передаем серверу. Он служит маркером для принимающей запрос системы: «смотри, здесь у меня значение такого-то параметра!». А иначе как система поймет, где что? Ей нужна подсказка!",
+    "shortText": "JSON (англ. JavaScript Object Notation) — текстовый формат обмена данными, основанный на JavaScript.",
+    "title": "Что такое JSON",
+    "updateDateTime": "2021-05-09"
+  },
+  {
+    "author": "RomeoLord",
+    "creationDateTime": "2017-01-26",
+    "id": 5,
+    "mainText": "Я сталкивался (да и не только я) с проблемой развертывания Hibernate и решил попробовать осветить данную тему. Работа с Hibernate сократит время разработки проекта в сравнении с обычным jdbc.",
+    "shortText": "Hibernate — это популярный framework, цель которого связать ООП и реляционную базу данных.",
+    "title": "Hibernate для начинающих",
+    "updateDateTime": "2017-02-05"
+  },
+  {
+    "author": "",
+    "creationDateTime": "",
+    "id": ,
+    "mainText": "",
+    "shortText": "",
+    "title": "",
+    "updateDateTime": ""
+  },
+  {
+  },
+  {
+  },
+  {
+  }
+]
