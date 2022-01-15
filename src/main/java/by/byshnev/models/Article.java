@@ -13,8 +13,8 @@ public class Article {
 
     @Id
     @GeneratedValue
-    private long ID;
-    private String Title;
+    private long id;
+    private String title;
     private String shortText;
     private String mainText;
     private String author;
