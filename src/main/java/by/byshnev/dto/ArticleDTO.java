@@ -1,4 +1,4 @@
-package by.byshnev.models;
+package by.byshnev.dto;
 
 import java.time.LocalDate;
 
@@ -10,17 +10,6 @@ public class ArticleDTO {
     private String author;
     private LocalDate creationDateTime;
     private LocalDate updateDateTime;
-
-    public ArticleDTO(int ID, String title, String shortText, String mainText, String author,
-                      LocalDate creationDateTime, LocalDate updateDateTime) {
-        this.ID = ID;
-        Title = title;
-        this.shortText = shortText;
-        this.mainText = mainText;
-        this.author = author;
-        this.creationDateTime = creationDateTime;
-        this.updateDateTime = updateDateTime;
-    }
 
     public int getID() {
         return ID;
