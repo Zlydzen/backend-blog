@@ -18,13 +18,15 @@ import java.util.List;
 @RequestMapping("/articles")
 public class ArticlesRestController {
 
+    private final String PATH = "/Users/Nikitos/Desktop/backend-blog/src/main/resources/articles.json";
+
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ArticleDTO> restArticle() {
         List<ArticleDTO> articleList = null;
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.findAndRegisterModules();
-            InputStream inputStream = new FileInputStream(new File("/Users/Nikitos/Desktop/backend-blog/src/main/resources/articles.json"));
+            objectMapper.findAndRegisterModules();  // Java 8 date/time type `java.time.LocalDate` not supported by default
+            InputStream inputStream = new FileInputStream(new File(PATH));
             TypeReference<List<ArticleDTO>> typeReference = new TypeReference<List<ArticleDTO>>() {};
             articleList = objectMapper.readValue(inputStream,typeReference);
         } catch (FileNotFoundException e) {
