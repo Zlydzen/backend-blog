@@ -1,10 +1,7 @@
 package by.byshnev.controllers;
 
 import by.byshnev.dto.ArticleDTO;
-import by.byshnev.models.Article;
-import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,12 +26,6 @@ public class ArticlesRestController {
             InputStream inputStream = new FileInputStream(new File(PATH));
             TypeReference<List<ArticleDTO>> typeReference = new TypeReference<List<ArticleDTO>>() {};
             articleList = objectMapper.readValue(inputStream,typeReference);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (StreamReadException e) {
-            e.printStackTrace();
-        } catch (DatabindException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
