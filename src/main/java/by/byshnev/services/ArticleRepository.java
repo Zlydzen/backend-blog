@@ -1,4 +1,4 @@
-package by.byshnev.repositories;
+package by.byshnev.services;
 
 import by.byshnev.models.Article;
 import org.springframework.data.repository.CrudRepository;
