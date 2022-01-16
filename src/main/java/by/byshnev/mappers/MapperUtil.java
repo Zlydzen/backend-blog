@@ -1,14 +1,14 @@
 package by.byshnev.mappers;
 
-import by.byshnev.dto.ArticleDTO;
+import by.byshnev.dto.ArticleDto;
 import by.byshnev.models.Article;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MapperUtil {
 
-    public ArticleDTO mapToArticleDTO(Article article) {
-        ArticleDTO dto = new ArticleDTO();
+    public ArticleDto mapToArticleDto(Article article) {
+        ArticleDto dto = new ArticleDto();
     dto.setId(article.getId());
     dto.setTitle(article.getTitle());
     dto.setShortText(article.getShortText());
