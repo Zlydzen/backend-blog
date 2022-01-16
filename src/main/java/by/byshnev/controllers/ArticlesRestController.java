@@ -18,7 +18,7 @@ public class ArticlesRestController {
     private final String PATH = "/Users/Nikitos/Desktop/backend-blog/src/main/resources/articles.json";
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ArticleDto> restArticle() {
+    public List<ArticleDto> getAllArticles() {
         List<ArticleDto> articleList = null;
         try {
             ObjectMapper objectMapper = new ObjectMapper();
