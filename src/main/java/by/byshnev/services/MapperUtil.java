@@ -1,4 +1,4 @@
-package by.byshnev.mappers;
+package by.byshnev.services;
 
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.models.Article;
