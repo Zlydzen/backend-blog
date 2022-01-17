@@ -21,6 +21,6 @@ public class ArticlesRestController {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ArticleDto> getAllArticles() {
-        return articleService.getAllArticles();
+        return articleService.allArticles();
     }
 }

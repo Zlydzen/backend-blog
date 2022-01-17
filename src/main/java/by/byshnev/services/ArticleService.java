@@ -1,5 +1,6 @@
 package by.byshnev.services;
 
+import by.byshnev.dao.ArticleDAO;
 import by.byshnev.dto.ArticleDto;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,12 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ArticleService {
+public class ArticleService  implements ArticleDAO {
 
     @Value("classpath:articles.json")
     Resource getFile;
 
-    public List<ArticleDto> getAllArticles() {
+    @Override
+    public List<ArticleDto> allArticles() {
         ObjectMapper mapper = new ObjectMapper();
         List<ArticleDto> list = new ArrayList<>();
         try {
