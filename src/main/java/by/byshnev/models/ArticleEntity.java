@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-public class Article {
+public class ArticleEntity {
 
     @Id
     @GeneratedValue

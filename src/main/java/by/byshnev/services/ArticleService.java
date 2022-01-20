@@ -12,12 +12,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
-public class ArticleService  implements ArticleDAO {
+public class ArticleService implements ArticleDAO {
 
     @Value("classpath:articles.json")
     Resource getFile;
+
+    private final MapperUtil mapperUtil;
+
+    public ArticleService(MapperUtil mapperUtil) {
+        this.mapperUtil = mapperUtil;
+    }
 
     @Override
     public List<ArticleDto> allArticles() {
