@@ -19,15 +19,19 @@ public class ArticleService implements ArticleDAO {
     @Value("classpath:articles.json")
     Resource getFile;
 
+    private final ObjectMapper objectMapper;
+    public ArticleService(ObjectMapper objectMapper) {
+        this.objectMapper = objectMapper;
+    }
+
     @Override
     public List<ArticleDto> allArticles() {
-        ObjectMapper mapper = new ObjectMapper();
         List<ArticleDto> list = new ArrayList<>();
         try {
             InputStream inputStream = getFile.getInputStream();
-            mapper.findAndRegisterModules(); // without it -> InvalidDefinitionException: Java 8 date/time type `java.time.LocalDate` not supported by default: add Module "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" to enable handling
+            objectMapper.findAndRegisterModules(); // without it -> InvalidDefinitionException: Java 8 date/time type `java.time.LocalDate` not supported by default: add Module "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" to enable handling
             TypeReference<List<ArticleDto>> typeReference = new TypeReference<List<ArticleDto>>() {};
-            list = mapper.readValue(inputStream, typeReference);
+            list = objectMapper.readValue(inputStream, typeReference);
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("File not found");
