@@ -2,10 +2,8 @@ package by.byshnev.services;
 
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.models.ArticleEntity;
-import org.springframework.stereotype.Service;
 
-@Service
-public class MapperUtil {
+public class Mapper {
 
     public ArticleDto mapToArticleDto(ArticleEntity entity) {
         ArticleDto dto = new ArticleDto();
