@@ -20,5 +20,4 @@ public class ArticleEntity {
     private String author;
     private LocalDate creationDateTime;
     private LocalDate updateDateTime;
-
 }
