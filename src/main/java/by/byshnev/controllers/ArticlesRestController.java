@@ -1,7 +1,6 @@
 package by.byshnev.controllers;
 
 import by.byshnev.dto.ArticleDto;
-import by.byshnev.entities.Article;
 import by.byshnev.services.ArticleService;
 import by.byshnev.services.Mapper;
 import org.springframework.http.MediaType;
