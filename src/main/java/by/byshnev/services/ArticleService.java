@@ -20,6 +20,7 @@ public class ArticleService implements ArticleDAO {
     Resource getFile;
 
     private final ObjectMapper objectMapper;
+
     public ArticleService(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }

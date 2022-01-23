@@ -1,11 +1,11 @@
 package by.byshnev.services;
 
 import by.byshnev.dto.ArticleDto;
-import by.byshnev.models.ArticleEntity;
+import by.byshnev.entities.Article;
 
 public class Mapper {
 
-    public ArticleDto mapToArticleDto(ArticleEntity entity) {
+    public ArticleDto mapToArticleDto(Article entity) {
         ArticleDto dto = new ArticleDto();
         dto.setId(entity.getId());
         dto.setTitle(entity.getTitle());
@@ -17,8 +17,8 @@ public class Mapper {
         return dto;
     }
 
-    public ArticleEntity mapToArticle(ArticleDto dto) {
-        ArticleEntity entity = new ArticleEntity();
+    public Article mapToArticle(ArticleDto dto) {
+        Article entity = new Article();
         entity.setId(dto.getId());
         entity.setTitle(dto.getTitle());
         entity.setShortText(dto.getShortText());
@@ -28,5 +28,4 @@ public class Mapper {
         entity.setUpdateDateTime(dto.getUpdateDateTime());
         return entity;
     }
-
 }

@@ -1,4 +1,4 @@
-package by.byshnev.models;
+package by.byshnev.entities;
 
 import lombok.Data;
 
@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-public class ArticleEntity {
+public class Article {
 
     @Id
     @GeneratedValue
