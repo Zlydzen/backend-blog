@@ -1,7 +1,7 @@
 package by.byshnev.services;
 
 import by.byshnev.dao.ArticleDAO;
-import by.byshnev.dto.ArticleDto;
+import by.byshnev.entities.Article;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,12 +26,12 @@ public class ArticleService implements ArticleDAO {
     }
 
     @Override
-    public List<ArticleDto> allArticles() {
-        List<ArticleDto> list = new ArrayList<>();
+    public List<Article> allArticles() {
+        List<Article> list = new ArrayList<>();
         try {
             InputStream inputStream = getFile.getInputStream();
             objectMapper.findAndRegisterModules(); // without it -> InvalidDefinitionException: Java 8 date/time type `java.time.LocalDate` not supported by default: add Module "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" to enable handling
-            TypeReference<List<ArticleDto>> typeReference = new TypeReference<List<ArticleDto>>() {};
+            TypeReference<List<Article>> typeReference = new TypeReference<List<Article>>() {};
             list = objectMapper.readValue(inputStream, typeReference);
         } catch (IOException e) {
             e.printStackTrace();

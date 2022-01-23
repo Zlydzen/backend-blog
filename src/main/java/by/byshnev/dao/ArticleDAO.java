@@ -1,8 +1,10 @@
 package by.byshnev.dao;
 
-import by.byshnev.dto.ArticleDto;
+import by.byshnev.entities.Article;
+
 import java.util.List;
 
+
 public interface ArticleDAO {
-    List<ArticleDto> allArticles();
+    List<Article> allArticles();
 }
