@@ -1,7 +1,6 @@
 package by.byshnev.controllers;
 
 import by.byshnev.dto.ArticleDto;
-import by.byshnev.entities.Article;
 import by.byshnev.mappers.ArticleMapper;
 import by.byshnev.services.ArticleService;
 import by.byshnev.services.Mapper;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 @RequiredArgsConstructor
 @RestController
