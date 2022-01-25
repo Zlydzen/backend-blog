@@ -4,7 +4,6 @@ import by.byshnev.dao.ArticleDAO;
 import by.byshnev.entities.Article;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -23,7 +22,6 @@ public class ArticleService implements ArticleDAO {
     Resource getFile;
 
     private final ObjectMapper objectMapper;
-
 
     @Override
     public List<Article> allArticles() {
