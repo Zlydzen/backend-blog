@@ -31,7 +31,6 @@
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -83,5 +82,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
