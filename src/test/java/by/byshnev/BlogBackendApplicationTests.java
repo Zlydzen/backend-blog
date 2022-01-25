@@ -2,6 +2,7 @@ package by.byshnev;
 
 import by.byshnev.controllers.ArticlesRestController;
 import by.byshnev.services.ArticleService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -22,6 +23,9 @@ class BlogBackendApplicationTests {
 
     @Autowired
     private ArticleService articleService;
+
+    @Autowired
+    private ObjectMapper objectMapper;
 
     @Autowired
     private ArticlesRestController articlesRestController;
