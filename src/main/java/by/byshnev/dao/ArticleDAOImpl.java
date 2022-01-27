@@ -15,15 +15,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ArticleDAOImpl implements ArticleDAO {
 
-    @Value("classpath:article.json")
+    @Value("classpath:articles.json")
     Resource file;
 
     private final ObjectMapper objectMapper;
 
-    private List<Article> list = new ArrayList<>();
-
     @Override
     public List<Article> allArticles() {
+        List<Article> list = new ArrayList<>();
         try {
             InputStream inputStream = file.getInputStream();
             TypeReference<List<Article>> typeReference = new TypeReference<List<Article>>() {};
