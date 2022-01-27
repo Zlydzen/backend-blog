@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class BeanFactory {
 
     @Bean
-    public ObjectMapper objectMapper(){
+    public ObjectMapper objectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.findAndRegisterModules();
         return objectMapper;
