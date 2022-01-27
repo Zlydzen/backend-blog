@@ -28,7 +28,6 @@ public class ArticleService implements ArticleDAO {
         List<Article> list = new ArrayList<>();
         try {
             InputStream inputStream = getFile.getInputStream();
-            objectMapper.findAndRegisterModules(); // without it -> InvalidDefinitionException: Java 8 date/time type `java.time.LocalDate` not supported by default: add Module "com.fasterxml.jackson.datatype:jackson-datatype-jsr310" to enable handling
             TypeReference<List<Article>> typeReference = new TypeReference<List<Article>>() {};
             list = objectMapper.readValue(inputStream, typeReference);
         } catch (IOException e) {

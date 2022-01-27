@@ -3,7 +3,6 @@ package by.byshnev.controllers;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.mappers.ArticleMapper;
 import by.byshnev.services.ArticleService;
-import by.byshnev.services.Mapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +18,7 @@ public class ArticlesRestController {
 
     private final ArticleService articleService;
 
-    private final Mapper mapper; //mapper by hand
-
-    private final ArticleMapper articleMapper; //mapstruct
-
+    private final ArticleMapper articleMapper;
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ArticleDto> getAllArticles() {
