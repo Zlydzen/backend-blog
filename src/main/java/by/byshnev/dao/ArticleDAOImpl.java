@@ -13,23 +13,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class ArticleDAOimpl implements ArticleDAO {
-
-    private final ObjectMapper objectMapper;
+public class ArticleDAOImpl implements ArticleDAO {
 
     @Value("classpath:article.json")
     Resource file;
 
+    private final ObjectMapper objectMapper;
+
+    private List<Article> list = new ArrayList<>();
+
     @Override
     public List<Article> allArticles() {
-        List<Article> list = new ArrayList<>();
         try {
             InputStream inputStream = file.getInputStream();
             TypeReference<List<Article>> typeReference = new TypeReference<List<Article>>() {};
             list = objectMapper.readValue(inputStream, typeReference);
         } catch (IOException e) {
-            System.out.println("File not found");
             e.printStackTrace();
+            System.out.println("Something wrong...");
         }
         return list;
     }
