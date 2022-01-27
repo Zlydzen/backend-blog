@@ -1,9 +1,6 @@
 package by.byshnev.controllers;
 
-import by.byshnev.dao.ArticleDAOImpl;
 import by.byshnev.dto.ArticleDto;
-import by.byshnev.entities.Article;
-import by.byshnev.mappers.ArticleMapper;
 import by.byshnev.services.ArticleServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
