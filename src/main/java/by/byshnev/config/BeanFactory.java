@@ -14,10 +14,4 @@ public class BeanFactory {
         objectMapper.findAndRegisterModules();
         return objectMapper;
     }
-
-    @Bean
-    public ArticleDAOImpl articleDAO() {
-        ObjectMapper objectMapper = objectMapper();
-        return new ArticleDAOImpl(objectMapper);
-    }
 }
