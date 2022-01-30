@@ -1,6 +1,7 @@
 package by.byshnev.controllers;
 
 import by.byshnev.dto.ArticleDto;
+import by.byshnev.services.ArticleService;
 import by.byshnev.services.ArticleServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -15,10 +16,10 @@ import java.util.List;
 @RequestMapping("/articles")
 public class ArticlesRestController {
 
-    private final ArticleServiceImpl articleServiceImpl;
+    private final ArticleService articleService;
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ArticleDto> getAllArticles() {
-        return articleServiceImpl.getAllArticles();
+        return articleService.getAllArticles();
     }
 }
