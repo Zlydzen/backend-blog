@@ -1,5 +1,6 @@
 package by.byshnev.services;
 
+import by.byshnev.dao.ArticleDAO;
 import by.byshnev.dao.ArticleDAOImpl;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.mappers.ArticleMapper;
@@ -14,7 +15,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     private final ArticleMapper articleMapper;
 
-    private final ArticleDAOImpl articleDAO;
+    private final ArticleDAO articleDAO;
 
     @Override
     public List<ArticleDto> getAllArticles() {
