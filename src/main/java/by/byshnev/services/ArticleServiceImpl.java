@@ -21,4 +21,9 @@ public class ArticleServiceImpl implements ArticleService {
     public List<ArticleDto> getAllArticles() {
         return articleMapper.toListArticleDto(articleDAO.allArticles());
     }
+
+    @Override
+    public ArticleDto getById(Long id) {
+        return articleMapper.toArticleDto(articleDAO.getById(id));
+    }
 }
