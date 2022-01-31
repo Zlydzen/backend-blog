@@ -8,5 +8,5 @@ public interface ArticleService {
 
     List<ArticleDto> getAllArticles();
 
-    ArticleDto getById(Long id);
+    ArticleDto getById(int id);
 }

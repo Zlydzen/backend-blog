@@ -37,8 +37,8 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
     @Override
-    public Article getById(Long id) {
-        Article article = allArticles().get(Math.toIntExact(id));
+    public Article getById(int id) {
+        Article article = allArticles().get(id);
         return article;
     }
 }

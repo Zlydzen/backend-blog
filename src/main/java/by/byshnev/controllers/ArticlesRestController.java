@@ -21,7 +21,7 @@ public class ArticlesRestController {
     }
 
     @GetMapping(value = "/{id}")
-    public ArticleDto getById(@PathVariable("id") Long id){
+    public ArticleDto getById(@PathVariable("id") int id){
         return articleService.getById(id);
     }
 }

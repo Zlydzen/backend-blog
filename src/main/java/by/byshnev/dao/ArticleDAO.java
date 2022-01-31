@@ -8,5 +8,5 @@ public interface ArticleDAO {
 
     List<Article> allArticles();
 
-    Article getById(Long id);
+    Article getById(int id);
 }
