@@ -38,13 +38,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     @Override
     public Article getById(int id) {
-        Article article = null;
-        try {
-            article = allArticles().get(id);
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("there is no article with this id");
-        }
-        return article;
+        return allArticles().get(id);
     }
 }
 
