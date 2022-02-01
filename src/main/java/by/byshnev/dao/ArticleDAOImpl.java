@@ -21,10 +21,10 @@ public class ArticleDAOImpl implements ArticleDAO {
     Resource file;
 
     private final ObjectMapper objectMapper;
+    List<Article> list = new ArrayList<>();
 
     @Override
     public List<Article> allArticles() {
-        List<Article> list = new ArrayList<>();
         try {
             InputStream inputStream = file.getInputStream();
             TypeReference<List<Article>> typeReference = new TypeReference<List<Article>>() {};
@@ -35,5 +35,11 @@ public class ArticleDAOImpl implements ArticleDAO {
         }
         return list;
     }
+
+    @Override
+    public void addArticle(Article article) {
+        list.add(article);
+    }
+
 }
 
