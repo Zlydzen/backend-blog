@@ -7,6 +7,7 @@ import by.byshnev.mappers.ArticleMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -20,5 +21,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public List<ArticleDto> getAllArticles() {
         return articleMapper.toListArticleDto(articleDAO.allArticles());
+    }
+
+    @Override
+    public void addArticleDto(ArticleDto articleDto) {
+        List<ArticleDto> list = articleMapper.toListArticleDto(articleDAO.allArticles());
+        list.add(articleDto);
     }
 }
