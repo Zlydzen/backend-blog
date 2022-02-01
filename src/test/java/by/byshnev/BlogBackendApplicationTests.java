@@ -1,8 +1,6 @@
 package by.byshnev;
 
 import by.byshnev.controllers.ArticlesRestController;
-import by.byshnev.services.ArticleServiceImpl;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -22,16 +20,10 @@ class BlogBackendApplicationTests {
     private MockMvc mockMvc;
 
     @Autowired
-    private ArticleServiceImpl articleServiceImpl;
-
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    @Autowired
     private ArticlesRestController articlesRestController;
 
     @Test
-    void contextLoads() throws Exception {
+    void getAllArticles() throws Exception {
         assertThat(articlesRestController).isNotNull();
 
         MvcResult mvcResult = this.mockMvc.perform(get("/articles"))
