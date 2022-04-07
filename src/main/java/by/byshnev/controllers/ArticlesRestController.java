@@ -3,10 +3,8 @@ package by.byshnev.controllers;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.services.ArticleService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -22,13 +20,8 @@ public class ArticlesRestController {
         return articleService.getAllArticles();
     }
 
-    @GetMapping(value = "/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ArticleDto getById(@PathVariable("id") int id) {
-        try {
-            return articleService.getById(id);
-        } catch (IndexOutOfBoundsException e) {
-            throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND);
-        }
+        return articleService.getById(id);
     }
 }

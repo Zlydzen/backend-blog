@@ -1,7 +1,6 @@
 package by.byshnev.services;
 
 import by.byshnev.dao.ArticleDAO;
-import by.byshnev.dao.ArticleDAOImpl;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.mappers.ArticleMapper;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +23,10 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public ArticleDto getById(int id) {
-        return articleMapper.toArticleDto(articleDAO.getById(id));
+        ArticleDto articleDto = articleMapper.toArticleDto(articleDAO.getById(id));
+        if (articleDto == null) {
+            System.out.println("User with ID " + id + "not found");
+        }
+        return articleDto;
     }
 }
