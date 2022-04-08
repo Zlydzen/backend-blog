@@ -40,6 +40,5 @@ public class ArticleDAOImpl implements ArticleDAO {
     public void addArticle(Article article) {
         list.add(article);
     }
-
 }
 

@@ -1,13 +1,11 @@
 package by.byshnev.services;
 
 import by.byshnev.dao.ArticleDAO;
-import by.byshnev.dao.ArticleDAOImpl;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.mappers.ArticleMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -24,8 +22,10 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void addArticleDto(ArticleDto articleDto) {
+    public ArticleDto addArticleDto(ArticleDto articleDto) {
         List<ArticleDto> list = articleMapper.toListArticleDto(articleDAO.allArticles());
+        articleDto.setId(list.size()+1);
         list.add(articleDto);
+        return articleDto;
     }
 }

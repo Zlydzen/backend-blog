@@ -20,8 +20,8 @@ public class ArticlesRestController {
         return articleService.getAllArticles();
     }
 
-    @PostMapping("/new")
-    public void addArticle(ArticleDto articleDto){
-       articleService.addArticleDto(articleDto);
+    @RequestMapping(value = "/new", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ArticleDto addArticle(ArticleDto articleDto){
+       return articleService.addArticleDto(articleDto);
     }
 }
