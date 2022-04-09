@@ -22,6 +22,6 @@ public class ArticlesRestController {
 
     @RequestMapping(value = "/new", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ArticleDto addArticle(ArticleDto articleDto){
-       return articleService.addArticleDto(articleDto);
+        return articleService.addArticleDto(articleDto);
     }
 }

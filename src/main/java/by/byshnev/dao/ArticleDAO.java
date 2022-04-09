@@ -7,5 +7,5 @@ import java.util.List;
 public interface ArticleDAO {
     List<Article> allArticles();
 
-    void addArticle(Article article);
+    Article addArticle(Article article);
 }
