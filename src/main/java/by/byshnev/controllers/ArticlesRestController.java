@@ -3,7 +3,6 @@ package by.byshnev.controllers;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.services.ArticleService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
