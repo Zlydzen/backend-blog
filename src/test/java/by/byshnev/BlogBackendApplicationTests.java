@@ -1,6 +1,8 @@
 package by.byshnev;
 
 import by.byshnev.controllers.ArticlesRestController;
+import by.byshnev.entities.Article;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -20,13 +22,19 @@ class BlogBackendApplicationTests {
     private MockMvc mockMvc;
 
     @Autowired
+    private ObjectMapper objectMapper;
+
+    @Autowired
     private ArticlesRestController articlesRestController;
 
     @Test
     void getAllArticles() throws Exception {
-        assertThat(articlesRestController).isNotNull();
 
-        MvcResult mvcResult = this.mockMvc.perform(get("/articles"))
+        Article article = new Article();
+        article.setAuthor("Dostoevsky");
+
+        MvcResult mvcResult = mockMvc.perform(
+                get("/articles"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andReturn();
