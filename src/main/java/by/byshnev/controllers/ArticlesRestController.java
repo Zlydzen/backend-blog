@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @RestController
@@ -22,7 +23,7 @@ public class ArticlesRestController {
     }
 
     @GetMapping("{id}")
-    public ArticleDto getById(@PathVariable int id) {
+    public Optional<ArticleDto> getById(@PathVariable int id) {
         List<ArticleDto> allArticles = articleService.getAllArticles();
         if (id >= 0 && id < allArticles.size()) {
             return articleService.getById(id);

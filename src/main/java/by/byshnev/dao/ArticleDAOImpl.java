@@ -41,4 +41,3 @@ public class ArticleDAOImpl implements ArticleDAO {
         return allArticles().get(id);
     }
 }
-

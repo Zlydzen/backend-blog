@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -22,11 +23,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public ArticleDto getById(int id) {
-        ArticleDto articleDto = articleMapper.toArticleDto(articleDAO.getById(id));
-        if (articleDto == null) {
-            System.out.println("User with ID " + id + "not found");
-        }
-        return articleDto;
+    public Optional<ArticleDto> getById(int id) {
+        return Optional.ofNullable(articleMapper.toArticleDto(articleDAO.getById(id)));
     }
 }
