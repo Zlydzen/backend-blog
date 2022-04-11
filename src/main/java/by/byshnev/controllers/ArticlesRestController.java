@@ -1,14 +1,18 @@
 package by.byshnev.controllers;
 
 import by.byshnev.dto.ArticleDto;
+import by.byshnev.exceptions.NotFoundException;
 import by.byshnev.services.ArticleService;
 import lombok.RequiredArgsConstructor;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Stream;
 
 @RequiredArgsConstructor
 @RestController
@@ -22,9 +26,13 @@ public class ArticlesRestController {
         return articleService.getAllArticles();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<ArticleDto> getById(@PathVariable("id") int id) {
-        ArticleDto byId = articleService.getById(id);
-        return byId != null ? ResponseEntity.ok(byId) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    @GetMapping("{id}")
+    public ArticleDto getById(@PathVariable int id) {
+        List<ArticleDto> allArticles = articleService.getAllArticles();
+        if (id >= 0 && id < allArticles.size()) {
+            return articleService.getById(id);
+        } else {
+            throw new NotFoundException();
+        }
     }
 }

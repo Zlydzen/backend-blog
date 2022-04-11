@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 @Data
 public class ArticleDto {
-    private long id;
+    private int id;
     private String title;
     private String shortText;
     private String mainText;

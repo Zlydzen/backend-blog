@@ -38,9 +38,7 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     @Override
     public Article getById(int id) {
-        Article article = new Article();
-        article.setId(id);
-        return article;
+        return allArticles().get(id);
     }
 }
 
