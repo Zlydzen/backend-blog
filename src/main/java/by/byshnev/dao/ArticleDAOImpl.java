@@ -37,9 +37,8 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
     @Override
-    public Article addArticle(Article article) {
-        list.add(list.size()+1,article);
-        return article;
+    public void addArticle(Article article) {
+        list.add(article);
     }
 }
 

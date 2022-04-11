@@ -7,5 +7,5 @@ import java.util.List;
 public interface ArticleService {
     List<ArticleDto> getAllArticles();
 
-    ArticleDto addArticleDto(ArticleDto articleDto);
+    void addArticleDto(ArticleDto articleDto);
 }

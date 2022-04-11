@@ -24,9 +24,9 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public ArticleDto addArticleDto(ArticleDto articleDto) {
+    public void addArticleDto(ArticleDto articleDto) {
         Article article = new Article();
         articleDAO.addArticle(article);
-        return articleMapper.toArticleDto(article);
+        articleMapper.toArticleDto(article);
     }
 }

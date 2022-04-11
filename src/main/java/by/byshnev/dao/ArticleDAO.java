@@ -5,7 +5,7 @@ import by.byshnev.entities.Article;
 import java.util.List;
 
 public interface ArticleDAO {
-    List<Article> allArticles();
+    public List<Article> allArticles();
 
-    Article addArticle(Article article);
+    public void addArticle(Article article);
 }

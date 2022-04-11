@@ -21,9 +21,10 @@ public class ArticlesRestController {
         return articleService.getAllArticles();
     }
 
-    @RequestMapping(value = "/new", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.CREATED)
-    public ArticleDto addArticle(ArticleDto articleDto){
-        return articleService.addArticleDto(articleDto);
+    @PostMapping("/new")
+    public ArticleDto addArticle(@RequestBody ArticleDto articleDto){
+        articleDto.setId(0);
+        articleService.addArticleDto(articleDto);
+        return articleDto;
     }
 }
