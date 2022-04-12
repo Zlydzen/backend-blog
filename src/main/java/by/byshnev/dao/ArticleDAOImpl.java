@@ -43,4 +43,3 @@ public class ArticleDAOImpl implements ArticleDAO {
         article.setId(index);
     }
 }
-

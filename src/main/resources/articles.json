@@ -81,7 +81,7 @@
     "updateDateTime": "2020-05-14"
   },
   {
-    "author": "",
+    "author": "Some author",
     "creationDateTime": "2021-06-25",
     "id": 9,
     "mainText": "What does that mean? We all have worked in projects where the typical database change management process was to write DDL, DML scripts in sql files which were source controlled and database changes were executed by self or by some other dedicated team. But there wasn’t really a nice way to define sequence of these changes, it was followed as best practice in the project. We always had to write sql for rollbacks as well and migration to other database was a painful task.",
