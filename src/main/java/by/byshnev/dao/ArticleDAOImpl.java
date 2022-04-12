@@ -38,8 +38,8 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     @Override
     public void addArticle(Article article) {
-        list.add(article);
-        int index = list.size() - 1;
+        allArticles().add(article);
+        int index = allArticles().size() - 1;
         article.setId(index);
     }
 }
