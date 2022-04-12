@@ -14,7 +14,6 @@ import java.util.List;
 public class ArticlesRestController {
 
     private final ArticleService articleService;
-    private int counter = articleService.getAllArticles().size();
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ArticleDto> getAllArticles() {
@@ -23,7 +22,6 @@ public class ArticlesRestController {
 
     @PostMapping("/new")
     public void addArticle(@RequestBody ArticleDto articleDto){
-        articleDto.setId(counter++);
         articleService.addArticleDto(articleDto);
     }
 }
