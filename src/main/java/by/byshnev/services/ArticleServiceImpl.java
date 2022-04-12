@@ -4,7 +4,6 @@ import by.byshnev.dao.ArticleDAO;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.entities.Article;
 import by.byshnev.mappers.ArticleMapper;
-import by.byshnev.repo.ArticleRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,11 +17,9 @@ public class ArticleServiceImpl implements ArticleService {
 
     private final ArticleDAO articleDAO;
 
-    private ArticleRepo articleRepo;
-
     @Override
     public List<ArticleDto> getAllArticles() {
-        List<Article> articles = articleRepo.findAll();
+        List<Article> articles = articleDAO.allArticles();
         return articleMapper.toListArticleDto(articles);
     }
 
