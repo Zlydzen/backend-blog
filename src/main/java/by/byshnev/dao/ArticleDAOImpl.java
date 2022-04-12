@@ -39,6 +39,8 @@ public class ArticleDAOImpl implements ArticleDAO {
     @Override
     public void addArticle(Article article) {
         list.add(article);
+        int index = list.size() - 1;
+        article.setId(index);
     }
 }
 
