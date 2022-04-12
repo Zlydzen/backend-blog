@@ -38,6 +38,10 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     @Override
     public Article getById(int id) {
-        return allArticles().get(id);
+        Article article = allArticles().get(id);
+        if (article.getId() == id) {
+            return article;
+        }
+        return null;
     }
 }
