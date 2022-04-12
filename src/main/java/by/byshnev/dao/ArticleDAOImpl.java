@@ -8,8 +8,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,9 +43,16 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     @Override
     public void addArticle(Article article) {
-        allArticles().add(article);
-        int index = allArticles().size() - 1;
-        article.setId(index);
+
+        try {
+            File file = this.file.getFile();
+            objectMapper.writeValue(file,article);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+//        allArticles().add(article);
+//        int index = allArticles().size() - 1;
+//        article.setId(index);
     }
 }
-
