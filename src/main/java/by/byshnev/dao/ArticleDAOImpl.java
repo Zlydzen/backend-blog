@@ -1,6 +1,7 @@
 package by.byshnev.dao;
 
 import by.byshnev.entities.Article;
+import by.byshnev.repo.ArticleRepo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,8 @@ import java.util.List;
 @Component
 public class ArticleDAOImpl implements ArticleDAO {
 
+    private ArticleRepo articleRepo;
+
     @Value("classpath:articles.json")
     Resource file;
 
@@ -25,21 +28,22 @@ public class ArticleDAOImpl implements ArticleDAO {
 
     @Override
     public List<Article> allArticles() {
-        try {
-            InputStream inputStream = file.getInputStream();
-            TypeReference<List<Article>> typeReference = new TypeReference<List<Article>>() {};
-            list = objectMapper.readValue(inputStream, typeReference);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Something wrong...");
-        }
-        return list;
+        return articleRepo.findAll();
     }
+
+//        try {
+//            InputStream inputStream = file.getInputStream();
+//            TypeReference<List<Article>> typeReference = new TypeReference<List<Article>>() {};
+//            list = objectMapper.readValue(inputStream, typeReference);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            System.out.println("Something wrong...");
+//        }
+//        return list;
+//    }
 
     @Override
     public void addArticle(Article article) {
-        allArticles().add(article);
-        int index = allArticles().size() - 1;
-        article.setId(index);
+        articleRepo.save(article);
     }
 }
