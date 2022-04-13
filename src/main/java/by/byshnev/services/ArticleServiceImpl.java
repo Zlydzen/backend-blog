@@ -25,14 +25,14 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void addArticleDto(ArticleDto articleDto) {
+    public void add(ArticleDto articleDto) {
         Article article = new Article();
         articleDAO.addArticle(article);
         articleMapper.toArticleDto(article);
     }
 
     @Override
-    public Optional<ArticleDto> getById(int id) {
-        return Optional.ofNullable(articleMapper.toArticleDto(articleDAO.getById(id)));
+    public ArticleDto getById(int id) {
+        return articleMapper.toArticleDto(articleDAO.getById(id));
     }
 }
