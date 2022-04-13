@@ -7,6 +7,6 @@ import java.util.List;
 public interface ArticleDAO {
 
     List<Article> allArticles();
-    Article createArticle(Article article);
+    void createArticle(Article article);
     Article getById(int id);
 }

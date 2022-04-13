@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @RequiredArgsConstructor
 @Service
@@ -17,6 +18,8 @@ public class ArticleServiceImpl implements ArticleService {
 
     private final ArticleDAO articleDAO;
 
+    private static final AtomicInteger ARTICLE_ID_HOLDER = new AtomicInteger();
+
     @Override
     public List<ArticleDto> getAllArticles() {
         List<Article> articles = articleDAO.allArticles();
@@ -24,10 +27,11 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public ArticleDto addOne(ArticleDto articleDto) {
+    public void addOne(ArticleDto articleDto) {
+        final int articleID = ARTICLE_ID_HOLDER.incrementAndGet();
         Article article = new Article();
-        articleDAO.createArticle(article);
-        return articleMapper.toArticleDto(article);
+        article.setId(articleID);
+        articleDto = articleMapper.toArticleDto(article);
     }
 
     @Override

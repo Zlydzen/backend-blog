@@ -48,6 +48,6 @@ public class CreateArticleControllerTest {
                 post("/articles/new")
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(newArticleDto))
-                ).andExpect(status().isOk());
+                ).andExpect(status().isCreated());
     }
 }

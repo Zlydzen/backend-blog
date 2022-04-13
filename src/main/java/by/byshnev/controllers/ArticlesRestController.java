@@ -3,7 +3,6 @@ package by.byshnev.controllers;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.services.ArticleService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +24,9 @@ public class ArticlesRestController {
     }
 
     @PostMapping("/new")
-    public ResponseEntity<ArticleDto> createArticle(@RequestBody ArticleDto articleDto) {
-        ArticleDto article = articleService.addOne(articleDto);
-        return new ResponseEntity<>(article, HttpStatus.OK);
+    public ResponseEntity<?> createArticle(@RequestBody ArticleDto articleDto) {
+        articleService.addOne(articleDto);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
