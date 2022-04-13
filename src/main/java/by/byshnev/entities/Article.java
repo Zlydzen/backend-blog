@@ -18,18 +18,18 @@ public class Article {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "shorttext")
+    @Column(name = "short_text")
     private String shortText;
 
-    @Column(name = "maintext")
+    @Column(name = "main_text")
     private String mainText;
 
     @Column(name = "author")
     private String author;
 
-    @Column(name = "creationdatetime")
+    @Column(name = "creation_date_time")
     private LocalDate creationDateTime;
 
-    @Column(name = "updatedatetime")
+    @Column(name = "update_date_time")
     private LocalDate updateDateTime;
 }
