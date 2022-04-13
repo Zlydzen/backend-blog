@@ -10,6 +10,5 @@ import java.util.List;
 public interface ArticleMapper {
 
     ArticleDto toArticleDto(Article article);
-
     List<ArticleDto> toListArticleDto(List<Article> articles);
 }
