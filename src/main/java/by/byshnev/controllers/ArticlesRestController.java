@@ -3,10 +3,11 @@ package by.byshnev.controllers;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.services.ArticleService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,11 +19,20 @@ public class ArticlesRestController {
     private final ArticleService articleService;
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ArticleDto> getAllArticles() {
-        return articleService.getAllArticles();
+    public ResponseEntity<List<ArticleDto>> getAllArticles() {
+        List<ArticleDto> allArticles = articleService.getAllArticles();
+        return new ResponseEntity<>(allArticles, HttpStatus.OK);
     }
 
-    public ArticleDto createArticle(ArticleDto articleDto) {
-        return articleService.addOne(articleDto);
+    @PostMapping("/new")
+    public ResponseEntity<ArticleDto> createArticle(@RequestBody ArticleDto articleDto) {
+        ArticleDto article = articleService.addOne(articleDto);
+        return new ResponseEntity<>(article, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ArticleDto> getOne(@PathVariable int id) {
+        ArticleDto byId = articleService.getById(id);
+        return new ResponseEntity<>(byId, HttpStatus.OK);
     }
 }
