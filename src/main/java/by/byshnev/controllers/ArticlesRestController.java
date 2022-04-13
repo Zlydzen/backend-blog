@@ -2,7 +2,6 @@ package by.byshnev.controllers;
 
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.services.ArticleService;
-import by.byshnev.services.ArticleServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +20,9 @@ public class ArticlesRestController {
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ArticleDto> getAllArticles() {
         return articleService.getAllArticles();
+    }
+
+    public ArticleDto createArticle(ArticleDto articleDto) {
+        return articleService.addOne(articleDto);
     }
 }

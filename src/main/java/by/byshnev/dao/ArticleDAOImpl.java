@@ -36,8 +36,8 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
     @Override
-    public void addArticle(Article article) {
-        articleRepo.save(article);
+    public Article createArticle(Article article) {
+        return articleRepo.save(article);
     }
 }
 

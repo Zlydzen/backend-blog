@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -25,10 +24,10 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public void add(ArticleDto articleDto) {
+    public ArticleDto addOne(ArticleDto articleDto) {
         Article article = new Article();
-        articleDAO.addArticle(article);
-        articleMapper.toArticleDto(article);
+        articleDAO.createArticle(article);
+        return articleMapper.toArticleDto(article);
     }
 
     @Override
