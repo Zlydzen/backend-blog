@@ -17,11 +17,8 @@ public class ArticlesRestController {
     private final ArticleService articleService;
 
     @GetMapping
-    public ResponseEntity<List<ArticleDto>> getAll() {
-        List<ArticleDto> allArticles = articleService.getAllArticles();
-        return allArticles != null && !allArticles.isEmpty()
-                ? new ResponseEntity<>(allArticles, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<List<ArticleDto>> getArticles() {
+        return ResponseEntity.ok(articleService.getAllArticles());
     }
 
     @PostMapping(value = "/new")
