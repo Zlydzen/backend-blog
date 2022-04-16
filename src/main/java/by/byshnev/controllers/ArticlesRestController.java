@@ -29,8 +29,8 @@ public class ArticlesRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ArticleDto> getOne(@PathVariable int id) {
+    public ResponseEntity<ArticleDto> getOne(@PathVariable(name = "id") int id) {
         ArticleDto byId = articleService.getById(id);
-        return new ResponseEntity<>(byId, HttpStatus.OK);
+        return byId != null ? new ResponseEntity<>(byId, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
