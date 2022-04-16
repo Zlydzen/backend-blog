@@ -73,7 +73,7 @@ public class ListArticlesControllerTest {
         articleDtoList.add(articleDtoOne);
         articleDtoList.add(articleDtoTwo);
 
-        Mockito.when(articleService.getAllArticles()).thenReturn(articleDtoList);
+        Mockito.when(articleService.getArticles()).thenReturn(articleDtoList);
 
         MvcResult mvcResult = mvc.perform(get("/articles")
                 .contentType(MediaType.APPLICATION_JSON))

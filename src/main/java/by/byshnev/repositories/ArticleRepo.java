@@ -1,4 +1,4 @@
-package by.byshnev.repo;
+package by.byshnev.repositories;
 
 import by.byshnev.entities.Article;
 import org.springframework.data.jpa.repository.JpaRepository;

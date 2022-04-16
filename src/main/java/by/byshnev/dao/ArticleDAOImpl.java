@@ -1,10 +1,12 @@
 package by.byshnev.dao;
 
 import by.byshnev.entities.Article;
-import by.byshnev.repo.ArticleRepo;
+import by.byshnev.repositories.ArticleRepo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
@@ -12,27 +14,23 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Component
-public class ArticleDAOImpl implements ArticleDAO {
+@Configuration
+public class ArticleDAOImpl {
 
     @Value("classpath:articles.json")
     Resource file;
 
     private final ObjectMapper objectMapper;
-
     private ArticleRepo articleRepo;
 
-    @Override
-    public List<Article> allArticles() {
+    public List<Article> getArticles() {
         return articleRepo.findAll();
     }
 
-    @Override
-    public Article getById(int id) {
+    public Article getById(int id){
         return articleRepo.getById(id);
     }
-
-    @Override
-    public void createArticle(Article article) {
+    public void create(Article article){
         articleRepo.save(article);
     }
 }

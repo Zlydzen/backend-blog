@@ -17,7 +17,7 @@ public class Article {
     @Column(name = "id")
     @GenericGenerator(name = "generator", strategy = "increment")
     @GeneratedValue(generator = "generator")
-    private Integer id;
+    private int id;
 
     @Column(name = "title")
     private String title;

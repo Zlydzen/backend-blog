@@ -1,6 +1,7 @@
 package by.byshnev.controllers;
 
 import by.byshnev.dto.ArticleDto;
+import by.byshnev.repositories.ArticleRepo;
 import by.byshnev.services.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,12 +19,12 @@ public class ArticlesRestController {
 
     @GetMapping
     public ResponseEntity<List<ArticleDto>> getArticles() {
-        return ResponseEntity.ok(articleService.getAllArticles());
+        return ResponseEntity.ok(articleService.getArticles());
     }
 
     @PostMapping(value = "/new")
     public ResponseEntity<?> createArticle(@RequestBody ArticleDto articleDto) {
-        articleService.addOne(articleDto);
+        articleService.create(articleDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
