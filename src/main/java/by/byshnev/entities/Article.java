@@ -31,12 +31,10 @@ public class Article {
     private String author;
 
     @CreatedDate
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private LocalDateTime creationDateTime;
+    @Column(updatable = false)
+    private LocalDateTime creationDateTime = LocalDateTime.now();
 
     @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     private LocalDateTime updateDateTime;
 }
