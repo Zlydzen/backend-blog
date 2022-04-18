@@ -2,7 +2,6 @@ package by.byshnev.dao;
 
 import by.byshnev.entities.Article;
 import by.byshnev.repositories.ArticleRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
@@ -29,13 +28,6 @@ public class ArticleDAOImpl {
         return articleRepository.getById(id);
     }
     public void create(Article article){
-        Article newArticle = new Article();
-        newArticle.setTitle(article.getTitle());
-        newArticle.setShortText(article.getShortText());
-        newArticle.setMainText(article.getMainText());
-        newArticle.setAuthor(article.getAuthor());
-        newArticle.setCreationDateTime(article.getCreationDateTime());
-        newArticle.setUpdateDateTime(article.getUpdateDateTime());
-        articleRepository.save(newArticle);
+        articleRepository.save(article);
     }
 }

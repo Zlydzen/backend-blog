@@ -2,7 +2,7 @@ package by.byshnev.dto;
 
 import lombok.Data;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 public class ArticleDto {
@@ -11,6 +11,6 @@ public class ArticleDto {
     private String shortText;
     private String mainText;
     private String author;
-    private LocalDate creationDateTime;
-    private LocalDate updateDateTime;
+    private Date creationDateTime;
+    private Date updateDateTime;
 }

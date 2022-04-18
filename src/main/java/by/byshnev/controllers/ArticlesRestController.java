@@ -1,6 +1,5 @@
 package by.byshnev.controllers;
 
-import by.byshnev.dao.ArticleDAOImpl;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.services.ArticleService;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +15,6 @@ import java.util.List;
 public class ArticlesRestController {
 
     private final ArticleService articleService;
-
     @GetMapping
     public ResponseEntity<List<ArticleDto>> getArticles() {
         return ResponseEntity.ok(articleService.getArticles());
@@ -33,5 +31,4 @@ public class ArticlesRestController {
         articleService.create(articleDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-
 }
