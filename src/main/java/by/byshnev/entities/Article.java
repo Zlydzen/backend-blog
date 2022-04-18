@@ -1,15 +1,17 @@
 package by.byshnev.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Data
 @Table(name = "article")
+@JsonIgnoreProperties(value = {"creationDateTime", "updateDateTime"}, allowGetters = true)
 public class Article {
 
     @Id
@@ -30,10 +32,12 @@ public class Article {
     private String author;
 
     @CreatedDate
-    @Column(name = "creation_date_time")
-    private LocalDate creationDateTime;
+    @Column(nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationDateTime;
 
-    @UpdateTimestamp
-    @Column(name = "update_date_time")
-    private LocalDate updateDateTime;
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @LastModifiedDate
+    private Date updateDateTime;
 }
