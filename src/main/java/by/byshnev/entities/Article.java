@@ -1,7 +1,6 @@
 package by.byshnev.entities;
 
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
@@ -10,7 +9,7 @@ import java.time.LocalDate;
 
 @Entity
 @Data
-@Table(name = "articles")
+@Table(name = "article")
 public class Article {
 
     @Id
