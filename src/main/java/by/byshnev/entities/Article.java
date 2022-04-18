@@ -6,7 +6,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -33,10 +33,10 @@ public class Article {
     @CreatedDate
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date creationDateTime;
+    private LocalDateTime creationDateTime;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
-    private Date updateDateTime;
+    private LocalDateTime updateDateTime;
 }
