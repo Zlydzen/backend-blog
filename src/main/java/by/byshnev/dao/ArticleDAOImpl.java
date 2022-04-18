@@ -3,14 +3,12 @@ package by.byshnev.dao;
 import by.byshnev.entities.Article;
 import by.byshnev.repositories.ArticleRepository;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-@Configuration
 public class ArticleDAOImpl {
 
     @Value("classpath:articles.json")

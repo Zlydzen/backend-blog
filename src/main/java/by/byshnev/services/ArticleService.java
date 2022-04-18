@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ArticleService {
     List<ArticleDto> getArticles();
-    void create(ArticleDto articleDto);
     ArticleDto getById(int id);
+    void create(ArticleDto articleDto);
 }
