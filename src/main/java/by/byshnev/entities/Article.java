@@ -2,8 +2,8 @@ package by.byshnev.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -30,11 +30,9 @@ public class Article {
     @Column(name = "author")
     private String author;
 
-    @CreatedDate
-    @Column(updatable = false)
+    @CreationTimestamp
     private LocalDateTime creationDateTime = LocalDateTime.now();
 
-    @Column(nullable = false)
-    @LastModifiedDate
+    @UpdateTimestamp
     private LocalDateTime updateDateTime;
 }
