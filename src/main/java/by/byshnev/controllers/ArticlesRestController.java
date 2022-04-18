@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -27,7 +28,7 @@ public class ArticlesRestController {
     @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<ArticleDto> getOne(@PathVariable(name = "id") int id) {
         ArticleDto articleDto = articleService.getById(id)
-                .orElseThrow(NotFoundException::new);
+                .orElseThrow(() -> new EntityNotFoundException("User "+ id + " is not found"));
         return ResponseEntity.ok().body(articleDto);
     }
 
