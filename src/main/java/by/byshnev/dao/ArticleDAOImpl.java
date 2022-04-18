@@ -16,8 +16,11 @@ public class ArticleDAOImpl {
 
     @Value("classpath:articles.json")
     Resource file;
-    @Autowired
-    private ArticleRepository articleRepository;
+    private final ArticleRepository articleRepository;
+
+    public ArticleDAOImpl(ArticleRepository articleRepository) {
+        this.articleRepository = articleRepository;
+    }
 
     public List<Article> getArticles() {
         return articleRepository.findAll();
