@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,7 @@ public class ListArticlesControllerTest {
 
     @Test
     public void listAllUsers_whenGetMethod() throws Exception {
-        LocalDate creationDate = LocalDate.of(1989, Month.MAY,19);
+        LocalDateTime creationDate = LocalDateTime.now();
         Article articleOne = new Article();
         articleOne.setId(1);
         articleOne.setAuthor("M.Brown");
@@ -54,9 +55,9 @@ public class ListArticlesControllerTest {
         articleOne.setShortText("Some short text");
         articleOne.setMainText("The main text is very long to typing it here");
         articleOne.setCreationDateTime(creationDate);
-        articleOne.setUpdateDateTime(LocalDate.now());
+        articleOne.setUpdateDateTime(LocalDateTime.now());
 
-        LocalDate creationDateTwo = LocalDate.of(1995, Month.JANUARY,26);
+        LocalDateTime creationDateTwo = LocalDateTime.of(1995, Month.JANUARY,26,13,24,12);
         Article articleTwo = new Article();
         articleTwo.setId(2);
         articleTwo.setAuthor("J.Patterson");
@@ -64,7 +65,7 @@ public class ListArticlesControllerTest {
         articleTwo.setShortText("Once upon a time");
         articleTwo.setMainText("It was long time ago, when dinosaurs lived");
         articleTwo.setCreationDateTime(creationDateTwo);
-        articleTwo.setUpdateDateTime(LocalDate.EPOCH);
+        articleTwo.setUpdateDateTime(LocalDateTime.now());
 
         ArticleDto articleDtoOne = articleMapper.toArticleDto(articleOne);
         ArticleDto articleDtoTwo = articleMapper.toArticleDto(articleTwo);
