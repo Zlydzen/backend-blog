@@ -1,7 +1,7 @@
 package by.byshnev.dao;
 
 import by.byshnev.entities.Article;
-import by.byshnev.repositories.ArticleRepo;
+import by.byshnev.repositories.ArticleRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,16 +20,16 @@ public class ArticleDAOImpl {
     Resource file;
 
     private final ObjectMapper objectMapper;
-    private ArticleRepo articleRepo;
+    private ArticleRepository articleRepository;
 
     public List<Article> getArticles() {
-        return articleRepo.findAll();
+        return articleRepository.findAll();
     }
 
     public Article getById(int id){
-        return articleRepo.getById(id);
+        return articleRepository.getById(id);
     }
     public void create(Article article){
-        articleRepo.save(article);
+        articleRepository.save(article);
     }
 }
