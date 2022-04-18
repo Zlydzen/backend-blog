@@ -1,6 +1,7 @@
 package by.byshnev.controllers;
 
 import by.byshnev.dto.ArticleDto;
+import by.byshnev.exceptions.NotFoundException;
 import by.byshnev.services.ArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -9,24 +10,28 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/articles")
 public class ArticlesRestController {
 
     private final ArticleService articleService;
-    @GetMapping
+
+    @GetMapping(produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ArticleDto>> getArticles() {
         return ResponseEntity.ok(articleService.getArticles());
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<ArticleDto> getOne(@PathVariable(name = "id") int id) {
-        ArticleDto byId = articleService.getById(id);
-        return byId != null ? new ResponseEntity<>(byId, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        ArticleDto articleDto = articleService.getById(id)
+                .orElseThrow(NotFoundException::new);
+        return ResponseEntity.ok().body(articleDto);
     }
 
-    @PostMapping(value = "/new")
+    @PostMapping(value = "/new", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createArticle(@RequestBody ArticleDto articleDto) {
         articleService.create(articleDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
