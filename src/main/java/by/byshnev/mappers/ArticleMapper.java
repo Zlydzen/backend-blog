@@ -11,4 +11,5 @@ public interface ArticleMapper {
 
     ArticleDto toArticleDto(Article article);
     List<ArticleDto> toListArticleDto(List<Article> articles);
+    Article toArticleEntity(ArticleDto articleDto);
 }

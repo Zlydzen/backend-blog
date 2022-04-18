@@ -1,5 +1,6 @@
 package by.byshnev.controllers;
 
+import by.byshnev.dao.ArticleDAOImpl;
 import by.byshnev.dto.ArticleDto;
 import by.byshnev.services.ArticleService;
 import lombok.RequiredArgsConstructor;
@@ -21,15 +22,16 @@ public class ArticlesRestController {
         return ResponseEntity.ok(articleService.getArticles());
     }
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<ArticleDto> getOne(@PathVariable(name = "id") int id) {
+        ArticleDto byId = articleService.getById(id);
+        return byId != null ? new ResponseEntity<>(byId, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
     @PostMapping(value = "/new")
     public ResponseEntity<?> createArticle(@RequestBody ArticleDto articleDto) {
         articleService.create(articleDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<ArticleDto> getOne(@PathVariable(name = "id") int id) {
-        ArticleDto byId = articleService.getById(id);
-        return byId != null ? new ResponseEntity<>(byId, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
 }

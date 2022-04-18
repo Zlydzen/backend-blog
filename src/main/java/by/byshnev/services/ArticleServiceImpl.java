@@ -17,7 +17,6 @@ public class ArticleServiceImpl implements ArticleService {
 
     private final ArticleDAOImpl articleDAO;
 
-    @Override
     public List<ArticleDto> getArticles() {
         List<Article> articles = articleDAO.getArticles();
         return articleMapper.toListArticleDto(articles);
@@ -25,9 +24,9 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void create(ArticleDto articleDto) {
+        articleDAO.create(articleMapper.toArticleEntity(articleDto));
     }
 
-    @Override
     public ArticleDto getById(int id) {
         return articleMapper.toArticleDto(articleDAO.getById(id));
     }

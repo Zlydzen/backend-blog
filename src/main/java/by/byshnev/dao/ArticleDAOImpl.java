@@ -22,11 +22,17 @@ public class ArticleDAOImpl {
     public List<Article> getArticles() {
         return articleRepository.findAll();
     }
-
     public Article getById(int id){
         return articleRepository.getById(id);
     }
     public void create(Article article){
-        articleRepository.save(article);
+        Article newArticle = new Article();
+        newArticle.setTitle(article.getTitle());
+        newArticle.setShortText(article.getShortText());
+        newArticle.setMainText(article.getMainText());
+        newArticle.setAuthor(article.getAuthor());
+        newArticle.setCreationDateTime(article.getCreationDateTime());
+        newArticle.setUpdateDateTime(article.getUpdateDateTime());
+        articleRepository.save(newArticle);
     }
 }
