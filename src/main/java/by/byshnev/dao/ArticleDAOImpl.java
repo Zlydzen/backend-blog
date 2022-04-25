@@ -1,6 +1,7 @@
 package by.byshnev.dao;
 
 import by.byshnev.entities.Article;
+import by.byshnev.exceptions.NotFoundException;
 import by.byshnev.repositories.ArticleRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -29,12 +30,18 @@ public class ArticleDAOImpl {
         articleRepository.save(article);
     }
 
-    public void update (Article article, int id){
-        Article customToUpdate = articleRepository.getById(id);
+    public void update(Article article, int id){
+        Article customToUpdate = articleRepository.findById(id).orElseThrow(NotFoundException::new);
+
         customToUpdate.setTitle(article.getTitle());
         customToUpdate.setShortText(article.getShortText());
         customToUpdate.setMainText(article.getMainText());
         customToUpdate.setAuthor(article.getAuthor());
         articleRepository.save(customToUpdate);
+    }
+
+    public void delete(int id){
+        articleRepository.findById(id).orElseThrow(NotFoundException::new);
+        articleRepository.deleteById(id);
     }
 }

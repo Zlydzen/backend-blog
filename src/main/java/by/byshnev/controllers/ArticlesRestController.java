@@ -43,4 +43,9 @@ public class ArticlesRestController {
          articleService.update(articleDto,id);
          return new ResponseEntity<>(HttpStatus.OK);
     }
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ArticleDto> deleteArticle(@PathVariable("id") int id){
+        articleService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

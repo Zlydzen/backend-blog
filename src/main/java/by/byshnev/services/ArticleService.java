@@ -10,4 +10,5 @@ public interface ArticleService {
     Optional<ArticleDto> getById(int id);
     void create(ArticleDto articleDto);
     void update(ArticleDto articleDto, int id);
+    void delete(int id);
 }

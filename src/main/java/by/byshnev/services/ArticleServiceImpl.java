@@ -38,4 +38,9 @@ public class ArticleServiceImpl implements ArticleService {
         Article article = articleMapper.toArticleEntity(articleDto);
         articleDAO.update(article,id);
     }
+
+    @Override
+    public void delete(int id) {
+        articleDAO.delete(id);
+    }
 }
