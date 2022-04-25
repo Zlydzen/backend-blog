@@ -32,4 +32,10 @@ public class ArticleServiceImpl implements ArticleService {
         Article byId = articleDAO.getById(id);
         return Optional.ofNullable(articleMapper.toArticleDto(byId));
     }
+
+    @Override
+    public void update(ArticleDto articleDto, int id) {
+        Article article = articleMapper.toArticleEntity(articleDto);
+        articleDAO.update(article,id);
+    }
 }

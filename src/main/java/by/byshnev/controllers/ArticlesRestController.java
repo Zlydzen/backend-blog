@@ -36,4 +36,11 @@ public class ArticlesRestController {
         articleService.create(articleDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @PutMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<ArticleDto> updateArticle(@PathVariable("id") int id,
+                                                    @RequestBody ArticleDto articleDto){
+         articleService.update(articleDto,id);
+         return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
