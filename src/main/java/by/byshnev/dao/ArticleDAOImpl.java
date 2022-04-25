@@ -28,4 +28,13 @@ public class ArticleDAOImpl {
     public void create(Article article){
         articleRepository.save(article);
     }
+
+    public void update (Article article, int id){
+        Article customToUpdate = articleRepository.getById(id);
+        customToUpdate.setTitle(article.getTitle());
+        customToUpdate.setShortText(article.getShortText());
+        customToUpdate.setMainText(article.getMainText());
+        customToUpdate.setAuthor(article.getAuthor());
+        articleRepository.save(customToUpdate);
+    }
 }
